@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" > 
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="bảng giá,bảng giá nhanh,bảng giá chứng khoán,tin tức,tin tức tài chính, websocket, ajax, lịch sử chứng khoán, bảng giá HOSE, bảng giá HNX, bảng giá UPCOM, giao dịch thỏa thuận, thông tin thị trường, biểu đồ phân tích kỹ thuật phục" />
+	<meta name="keywords" content="vpbs,bảng giá,bảng giá nhanh,tin tức" />
+    <meta name="author" content="khanhnx">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/vpbs.ico">
+    <title>VPBS - Bảng giá</title>
+    <link href="dist/css/jquery-ui.css" rel="stylesheet">
+    <!--Toaster Popup message CSS -->
+    <link href="assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <link href="assets/node_modules/horizontal-timeline/css/horizontal-timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <!-- <link href="dist/css/pages/ribbon-page.css" rel="stylesheet"> -->
+    <!-- All Jquery -->
+    
+    <script src="assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="assets/node_modules/jqueryui/jquery-ui.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="assets/node_modules/popper/popper.min.js"></script>
+    <script src="assets/node_modules/bootstrap/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.js"></script>
+    <script src="assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Popup message jquery -->
+    <script src="assets/node_modules/toast-master/js/jquery.toast.js"></script>
+    <!--sort table-->
+    <script src="dist/js/jquery.tablesorter.js"></script>
+    <script src="dist/js/jquery.tablesorter.widgets.js"></script>
+
+    <!-- Html canvas -->
+    <script src="dist/js/html2canvas.js"></script>
+    <!-- <script src="dist/js/canvas2image.js"></script> -->
+
+    <script src="dist/js/underscore-min.js"></script>
+    <script src="dist/js/backbone-min.js"></script>
+    <!-- <script src="dist/js/handlebars-v4.0.11.js"></script> -->
+    <script src="dist/js/highcharts4.js"></script>
+    <script src="dist/js/jstorage.js"></script>
+    <script src="dist/js/jquery.ba-jqmq.min.js"></script>
+    <!--knockout js-->
+    <!-- <script src="dist/js/knockout-3.4.2.js"></script> -->
+    <script src="dist/js/socket.io.js"></script>
+    <script src="dist/js/pages/config.js?v=1.1"></script>
+    <script src="dist/js/pages/utils.js?v=1.1"></script>
+
+    <script src="dist/js/pages/fbapp.js"></script>
+    
+</head>
+
+<body class="skin-default fixed-layout">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <!-- <p class="loader__label">Elite admin</p> -->
+        </div>
+    </div>
+    
+    <div id="main-wrapper">
+        <!-- Topbar header - style you can find in pages.scss -->
+        <header class="topbar" style="border-bottom: 2px solid #0B0B0B;">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark" style="display: flex;">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#DanhSachTheoDoi">
+                    <b>
+                        <img src="assets/images/VPBS_logo.png" alt="homepage" class="dark-logo" style="width: 100px;"/>
+                    </b>
+                    </a>
+                </div>
+                <div class="header-info" style="display: flex;justify-content: space-between;align-items: center;width: 100%;">
+                    <div class="total-trade-info" style="display: flex; align-items: center;">
+                        <span class="txtTotalCS" style="color: #fff;margin-left: 15px;">Tổng GD:</span>&nbsp;&nbsp;
+                        <span id="sum2MarketValue" style="color: #23ad23;font-size: 1.25em;font-weight: 700;"></span>
+                        <span class="txtTotalTT" style="color: #fff;margin-left: 15px;">Tổng GDTT:</span>&nbsp;&nbsp;
+                        <span id="sum2MarketTTValue" style="color: #23ad23;font-size: 1.25em;font-weight: 700;"></span>
+                        <div class="news">
+                            <span>News:</span>
+                            <ul>
+                                <li style="line-height:22px;height:23px;overflow:hidden;" id="-482387292"><a style="font-size:12px;color:#FFB900;font-weight:bold;" target="_blank" href="http://cafef.vn/thu-tuong-ke-thua-thanh-tuu-hon-30-nam-doi-moi-the-va-luc-cua-ta-lon-manh-hon-nhieu-20181022101652945.chn" title="11:54 - Thủ tướng: Kế thừa thành tựu hơn 30 năm đổi mới, thế và lực của ta lớn mạnh hơn nhiều(cafeF)">	Thủ tướng: Kế thừa thành tựu hơn 30 năm đổi mới, thế và lực của ta lớn mạnh hơn nhiều</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mini-index" style="display: none;">
+
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <div class="dropdown-account">
+                            <span id="account-info"></span>
+                            <div class="dropdown-account-content">
+                                <span><i class="fa fa-user" aria-hidden="true"></i><span id="account_id"></span></span>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" onclick="logout();"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a>
+                            </div>
+                        </div>
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" style="display: none;" id="btn-fb-login"></fb:login-button>
+                        <button type="button" style="margin-top: 21px;" class="btn btn-sm btn-secondary btn-toggle btn-select-lang active" data-toggle="button" aria-pressed="true">
+                            <div class="handle"></div>
+                        </button>
+                    </div>
+                </div>
+                <!-- <span class="timeStamp" style="margin-left: auto;margin-right: 10px;"></span> -->
+            </nav>
+        </header>
+        <!-- End Topbar header -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <aside class="left-sidebar" style="display: none;">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- User Profile-->
+                <div class="user-profile">
+                    <div class="user-pro-body">
+                        <div class="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Steave Gection <span class="caret"></span></a>
+                            <div class="dropdown-menu animated flipInY">
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <div style="position: fixed; z-index: 10; opacity: 0.95;">
+                    <!-- Info box -->
+                    <div class="info-box">
+                        <div class="inner">
+                            <div class="chevron-left"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+                            <div class="chevron-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                            <!-- <div class="card chart" style="width: 250px; left: 1px;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <h6>VN-INDEX</h6>
+                                        <div class="d-flex no-block align-items-center" id="containerHSX">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="card chart" style="left: 250px; width: 250px;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <h6>HNX-INDEX</h6>
+                                        <div class="d-flex no-block align-items-center" id="containerHNX">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card chart" style="left: 500px; width: 250px;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <h6>UPCOM-INDEX</h6>
+                                        <div class="d-flex no-block align-items-center" id="containerUPCOM">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card chart" style="left: 750px; width: 250px;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <h6>VN30-INDEX</h6>
+                                        <div class="d-flex no-block align-items-center" id="containerVN30">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+    
+                            <div class="card index" style="position: fixed; height: 150px; left: 1000px;">
+                                <table class="table color-table muted-table" id="table-stock-index">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Index</th>
+                                            <th>Change</th>
+                                            <th>%Chg</th>
+                                            <th>Volume</th>
+                                            <th>Value</th>
+                                            <th style="color: #50C979;"><i class="fa fa-caret-up" aria-hidden="true"></i></th>
+                                            <th style="color: #d1af54;"><i class="fa fa-square" aria-hidden="true"></i></th>
+                                            <th style="color: #DA5664;"><i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                            <th style="border-right: none;">ST</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card chart word-index" style="left: 1535px; display: flow-root;display: -webkit-box; width: 355px;">
+                            </div>
+                            <div class="card chart commondity-index" style="left: 1889px; display: flow-root;display: -webkit-box; width: 180px;">
+                                
+                            </div>
+                            <!-- Column -->
+                        </div>
+                    </div>
+                    <!-- End Info box -->
+
+                    <div class="content-header">
+                        <div class="tab-left" style="height: 100%;">
+                            <div>
+                                <span><i class="fa fa-plus" aria-hidden="true" style="padding-top: 5px;"></i></span>
+                                <input type="text" placeholder="Thêm mã CK" id="txtAddStock">
+                            </div>
+                            <div class="tab dropdown">
+                                <a href="#DanhSachTheoDoi">Danh sách theo dõi</a>
+                                <!-- <span>Danh sách theo dõi</span> -->
+                                <!-- <div class="dropdown-content" style="display: none;"> -->
+                                <div class="dropdown-content dropdown-menu animated show"  x-placement="top-start" style="display: none;">
+                                    <span class="dropdown-item active">
+                                        <a href="javascript:void(0)">Danh sách theo dõi</a>
+                                        <input class="txt-edit-dm" type="text" hidden>
+                                        <span>
+                                            <button class="btn-ed"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button class="btn-del"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                            <button class="btn-share"><i class="fa fa-share" aria-hidden="true"></i></button>
+                                        </span>
+                                    </span>
+                                    <!-- <div class="dropdown-divider"></div> -->
+                                    <span class="dropdown-item">
+                                        <input type="text" placeholder="Tạo danh mục mới">
+                                        <button class="btn-add"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </span>
+                                    <!-- <a class="dropdown-item" href="javascript:void(0)">Separated link</a> -->
+                                </div>
+                                <!-- </div> -->
+                                <!-- <a href="#DanhSachTheoDoi">Danh sách theo dõi</a> -->
+                            </div>
+                            <div class="tab tab-hose"><a href="#HOSE">HOSE</a></div>
+                            <div class="tab tab-hnx"><a href="#HNX">HNX</a></div>
+                            <div class="tab tab-upcom"><a href="#UPCOM">UPCOM</a></div>
+                            <div class="tab tab-phaisinh"><a href="#PhaiSinh">Phái sinh</a></div>
+                            <div class="tab tab-thoathuan"><a href="#ThoaThuan">Thỏa thuận</a></div>
+                            <div class="tab tab-thongke"><a href="#ThongKe">Thống kê</a></div>
+                        </div>
+                        <div style="height: 100%;">
+                            <!-- <select class="">
+                                <option>Danh mục mặc định</option>
+                            </select>
+                            <div class="tab">
+                                <i class="fa fa-plus" aria-hidden="true"></i>Thêm
+                            </div>
+                            <div class="tab">
+                                <i class="fa fa-times" aria-hidden="true"></i>Xóa
+                            </div> -->
+                            <div class="tab tab-caidat" data-toggle="modal" data-target="#setting-modal" data-whatever="@fat">
+                                <i class="fa fa-cog" aria-hidden="true"></i><span class="txtCD">Cài đặt</span>
+                            </div>
+                            <div class="tab tab-thugon chart-toggle" ty="1">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i><span class="txtTG">Thu gọn</span>
+                            </div>
+                            <!--border-bottom: 2px solid rgb(75, 252, 205); -->
+                            <div class="tab tab-theme dropdown">
+                                <span><i class="fa fa-desktop" aria-hidden="true"></i></span>
+                                <div class="dropdown-content-theme animated show"  x-placement="top-start" style="display: none;">
+                                    <span class="dropdown-item active">
+                                        <a href="javascript:void(0)" class="txtHienDai">Hiện đại</a>
+                                    </span>
+                                    <span class="dropdown-item">
+                                        <a href="javascript:void(0)" class="txtCoDien">Cổ điển</a>
+                                    </span>
+                                    <span class="dropdown-item">
+                                        <a href="javascript:void(0)" class="txtTuoiSang">Tươi sáng</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="tab-datlenh">
+                                <i style="padding-top: 4px;" class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                <span class="txtDatLenh">Đặt lệnh</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row main-content" style="margin-top: 150px;">
+                    <div class="main">
+
+                    </div>
+                </div>
+                
+                <!-- Right sidebar -->
+                <!-- .right-sidebar -->
+                <div class="right-sidebar">
+                    <div class="slimscrollright">
+                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+                        <div class="r-panel-body">
+                            <ul id="themecolors" class="m-t-20">
+                                <li><b>With Light sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-default" class="default-theme working">1</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-green" class="green-theme">2</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-red" class="red-theme">3</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-blue" class="blue-theme">4</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-purple" class="purple-theme">5</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-megna" class="megna-theme">6</a></li>
+                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-default-dark" class="default-dark-theme ">7</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-green-dark" class="green-dark-theme">8</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-red-dark" class="red-dark-theme">9</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-blue-dark" class="blue-dark-theme">10</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-purple-dark" class="purple-dark-theme">11</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-megna-dark" class="megna-dark-theme ">12</a></li>
+                            </ul>
+                            <ul class="m-t-20 chatonline">
+                                <li><b>Chat option</b></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Right sidebar -->
+            </div>
+            <!-- End Container fluid  -->
+        </div>
+        <!-- End Page wrapper  -->
+        <!-- footer -->
+        <footer class="footer">
+            <span class="timeStamp"></span>
+            <div class="mini-bottom-index" style="display: none;"></div>
+            <div>
+                <span>Status: </span>
+                <span id="status-connect"></span>
+                <button class="btn btn-comment" data-toggle="tooltip" data-placement="top" title="" data-original-title="Thêm góp ý">
+                    <i class="fa fa-comments" aria-hidden="true"></i>
+                </button>
+                <a href="/assets/user_guide/VPBS_HDSD_Bang_gia.pdf" onclick="hideTooltip();" class="user_guide" style="color: #C6CBDE;" target="_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hướng dẫn sử dụng"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            </div>
+        </footer>
+        <!-- End footer -->
+    </div>
+    <div class="modal fade" id="setting-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title txtCD" id="exampleModalLabel1">Cài đặt</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: #C6CBDE;">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12" style="display: flex;">
+                        <div id="d-column-setting" class="col-6" style="display: inline-flex; height: 320px;border-right: 1px solid #727375;">
+                            <div style="width: 40%; height: 100%; background: #7D8296;">
+                                <h5 class="txtColumnShow">Column hiển thị</h5>
+                                <div class="col-12">
+                                    <ul id="column-selected">
+                                        <li type="total-volumn">Tổng KL<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="dumua">Dư mua<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="duban">Dư bán<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="ave">TB<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="hight">Cao<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="low">Thấp<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="quote">ĐTNN<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="width: 10%; margin: 0 5%; height: 100%; background: transparent;">
+                                <div style="margin-top: 85px;">
+                                    <button class="btn waves-effect waves-light btn-modal txt-center" type="aa"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+                                    <button class="btn waves-effect waves-light btn-modal txt-center" type="a"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                    <button class="btn waves-effect waves-light btn-modal txt-center" type="d"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                    <button class="btn waves-effect waves-light btn-modal txt-center" type="da"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <div style="width: 40%; height: 100%; background: #7D8296;">
+                                <h5 class="txtColumnNotShow">Column không hiển thị</h5>
+                                <div class="col-12">
+                                    <ul id="column-un-selected">
+                                        <li type="rsi">RSI(14)<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="macd">MACD<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="d-chart-setting" class="col-6" style="display: inline-flex; height: 320px;">
+                            <div style="width: 40%; height: 100%; background: #7D8296;">
+                                <h5 class="txtChartShow">Chart hiển thị</h5>
+                                <div class="col-12">
+                                    <ul id="chart-selected">
+                                        <li type="chartVNIndex">VN-INDEX<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="chartHNXIndex">HNX-INDEX<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="chartUPCOMIndex">UPCOM-INDEX<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                        <li type="chartVN30Index">VN30-INDEX<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="width: 10%; margin: 0 5%; height: 100%; background: transparent;">
+                                <div style="margin-top: 85px;">
+                                    <button class="btn waves-effect waves-light btn-modal txt-center" type="aa"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+                                    <button class="btn waves-effect waves-light btn-modal txt-center" type="a"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                    <button class="btn waves-effect waves-light btn-modal txt-center" type="d"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                    <button class="btn waves-effect waves-light btn-modal txt-center" type="da"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <div style="width: 40%; height: 100%; background: #7D8296;">
+                                <h5 class="txtChartNotShow">Chart không hiển thị</h5>
+                                <div class="col-12">
+                                    <ul id="chart-un-selected">
+                                        <li type="chartHNX30Index">HNX-INDEX<input type="checkbox" style="float: right; margin-top: 4px;"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6" style="height: 30px;display: flex;align-items: center;justify-content: space-between;">
+                        <label class="txtAddNewStockLabel">Thêm mới mã chứng khoán: </label>
+                        <label>
+                            <input type="radio" name="settingAddStock" id="settingAddStock1" value="1">
+                            <span class="txtEndTable">Cuối danh sách</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="settingAddStock" id="settingAddStock2" value="2">
+                            <span class="txtTopTable">Đầu danh sách</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-save save-setting">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="share-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel1">Danh mục chia sẻ</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: #C6CBDE;">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12" style="justify-content: left;height: 32px;">
+                        <span>Tên danh mục</span>
+                        <input type="text" value="" class="form-control share_name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-save save_list_stock">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog modal-dialog-centered modal-bs" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel1">Cài đặt</h4>
+                    <span class="san-ck">HOSE</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: #C6CBDE;">&times;</span></button>
+                </div>
+                <div class="modal-body" style="padding: 0;">
+                    <div class="col-12" style="padding: 0;">
+                        <div style="width: 100%; height: 35px;">
+                            <div style="position: absolute; top: 2px; right: 70px; display: inline-flex;">
+                                <input type="text" id="txtModalStock" placeholder="Nhập mã chứng khoán" class="form-control txtNhapMaChungKhoan" style="background: #ddd;color: #232130;margin-right: 10px; min-height: 25px;padding: 2px;">
+                                <div class="btn-group" role="group">
+                                    <div class="btn-group show" role="group">
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="padding: 2px 10px;">
+                                            <span class="txtDanhMuc">Danh mục</span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -104px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                            
+                                        </div>
+                                    </div>
+                                    <button type="button" id="btnAddStockModal" class="btn btn-success" style="padding: 2px 10px;"><span class="txtThem">Thêm</span></button>
+                                </div>
+                            </div>
+                            <button class="btn-capture"><i class="fa fa-camera" aria-hidden="true"></i></button>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active show" data-toggle="tab" href="#detailGeneral" role="tab" aria-selected="true">
+                                        <span class="hidden-xs-down txtTongQuan">Tổng quan</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#detailChart" role="tab" aria-selected="false">
+                                        <span class="hidden-xs-down txtBieuDo">Biểu đồ</span>
+                                    </a> 
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#detailFinancial" role="tab" aria-selected="false">
+                                        <span class="hidden-xs-down txtTaiChinh">Tài chính</span>
+                                    </a> 
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#detailTechnical" role="tab" aria-selected="false">
+                                        <span class="hidden-xs-down txtKyThuat">Kỹ thuật</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" style="overflow-y: auto;">
+                            <div class="tab-panel active show" id="detailGeneral" role="tabpanel">
+                                <div class="col-12" style="display: flex;">
+                                    <div class="panel-left" style="padding-top: 10px; width: 625px;margin: 0 10px;">
+                                        <div style="width: 100%;" id="intraday_chart">
+                                            <div style="margin-left:0px; display: flex; justify-content: center;">
+                                                <span class="modal-btn-chart active" onclick="openHis(1);" id="his1">&nbsp;&nbsp;1d&nbsp;&nbsp;</span>
+                                                <span class="modal-btn-chart" onclick="openHis(2);" id="his2">&nbsp;&nbsp;1w&nbsp;&nbsp;</span>
+                                                <span class="modal-btn-chart" onclick="openHis(3);" id="his3">&nbsp;&nbsp;1m&nbsp;&nbsp;</span>
+                                                <span class="modal-btn-chart" onclick="openHis(4);" id="his4">&nbsp;&nbsp;3m&nbsp;&nbsp;</span>
+                                                <span class="modal-btn-chart" onclick="openHis(5);" id="his5">&nbsp;&nbsp;6m&nbsp;&nbsp;</span>
+                                                <span class="modal-btn-chart" onclick="openHis(6);" id="his6">&nbsp;&nbsp;1y&nbsp;&nbsp;</span>
+                                            </div>
+                                            <div id="containerStockChart" style="height: 285px; width: 625px; margin: 0 auto;" ></div>
+                                        </div>
+                                        <div style="width: 100%;border-top: 2px solid #596073;" id="symbol-news"></div>
+                                    </div>
+                                    <div  class="panel-right" style="width: calc(100% - 625px);margin: 0 10px;">
+                                        <ul style="margin-top: 10px;">
+                                            <li><span class="txtGiaMoCua">Giá mở cửa</span><span id="cb-mocua"></span></li>
+                                            <li><span class="txtGiaCaoNhat">Giá cao nhất</span><span id="cb-caonhat"></span></li>
+                                            <li><span class="txtGiaThapNhat">Giá thấp nhất</span><span id="cb-thapnhat"></span></li>
+                                            <li><span class="txtKLGD">KLGD</span><span id="cb-klgd"></span></li>
+                                            <li><span class="txtVonHoa">Vốn hóa</span><span id="cb-cap"></span></li>                                            
+                                        </ul>
+                                        <ul>
+                                            <li><span class="txtdumua">Dư mua</span><span id="cb-dumua"></span></li>
+                                            <li><span class="txtduban">Dư bán</span><span id="cb-duban"></span></li>
+                                            <li><span class="txtBienDo52">Biên độ 52 tuần</span><span id="cb-amplitude-52"></span></li>
+                                            <li><span class="txtNNMua">NN mua</span><span id="cb-nnmua"></span></li>
+                                            <li><span class="txtNNSoHuuPer">%NN sở hữu</span><span id="cb-nnsh"></span></li>
+                                        </ul>
+                                        <ul>
+                                            <li><span class="li-cb"><span>ROE</span><span id="cb-roe"></span></span><span class="li-cb"><span>ROA</span><span id="cb-roa"></span></span></li>
+                                            <li><span class="li-cb txtCoTucTM"><span>Cổ tức TM</span><span id="cb-dividend"></span></span><span class="li-cb"><span>Beta</span><span id="cb-beta"></span></span></li>
+                                            <li><span class="li-cb"><span>Yield</span><span id="cb-yield"></span></span><span class="li-cb"><span>FWPE</span><span id="cb-fwpe"></span></span></li>
+                                            <li><span class="li-cb"><span>PB</span><span id="cb-pb"></span></span><span class="li-cb"><span>P/E</span><span id="cb-pe"></span></span></li>
+                                            <li><span class="li-cb"><span>EPS</span><span id="cb-eps"></span></span><span class="li-cb"><span>BVPS</span><span id="cb-bvps"></span></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-panel" id="detailChart" role="tabpanel">
+                                <div style="width: 100%; display: flex;padding-bottom: 10px;">
+                                    <div class="col-9" style="padding: 0; background: #fff; border: none;">
+                                        <iframe src="" id="chart-ptkt"></iframe>
+                                    </div>
+                                    <div class="col-3 option1-scr" style="padding: 0; background: #fff; height: 524px;">
+                                        <h5 class="txtLSKL" style="background: #fff;text-align: center;color: #000;">Lịch sử khớp lệnh</h5>
+                                        <table id="historyOrder">
+                                            
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-panel" id="detailFinancial" role="tabpanel">
+                                <div class="head-tc">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-def txtHangNam active" ty="year">Hàng năm</button>
+                                        <button type="button" class="btn btn-def txtHangQuy" ty="quarter">Hàng quý</button>
+                                    </div>
+                                    <div class="pagging-right" style="display: flex; align-items: center;">
+                                        <div class="sp-default active" onclick="updateVisibleContent(1);"></div>
+                                        <div class="sp-default" onclick="updateVisibleContent(2);"></div>
+                                        <div class="sp-default" onclick="updateVisibleContent(3);"></div>
+                                    </div>
+                                </div>
+                                <div class="cd-horizontal-timeline loaded">
+                                    <div class="events-content">
+                                        <ol>
+                                            <li class="selected" no="1">
+                                                <form id="formInformation1">
+                                                    <fieldset>
+                                                    <table class="table table-bordered table-striped" id="tbl-kqkd">
+                                                                                                                
+                                                    </table>
+                                                    <span class="txtDonViTD" style="float: right;">Đơn vị: triệu đồng</span>
+                                                    </fieldset>
+                                                </form>
+                                            </li>
+                                            <li no="2">
+                                                <form id="formInformation2">
+                                                    <fieldset>
+                                                    <table class="table table-bordered table-striped" id="tbl-cdkt">
+                                                                                                             
+                                                    </table>
+                                                    <span class="txtDonViTD" style="float: right;">Đơn vị: triệu đồng</span>
+                                                    </fieldset>
+                                                </form>
+                                            </li>
+                                            <li no="3">
+                                                <form id="formInformation3">
+                                                    <fieldset>
+                                                    <table class="table table-bordered table-striped" id="tbl-cstc">
+                                                                                                                
+                                                    </table>
+                                                    <span class="txtDonViTD" style="float: right;">Đơn vị: triệu đồng</span>
+                                                    </fieldset>
+                                                </form>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-panel" id="detailTechnical" role="tabpanel">
+                                <div class="col-12" style="align-items: flex-start; padding-top: 10px; padding-bottom: 10px;">
+                                    <div class="col-5">
+                                        <table class="table color-table muted-table">
+                                            <thead>
+                                                <div class="div-tongket">
+                                                    <span class="txtTongKet" style="width: 120px; padding-left: 10px;font-weight: 550;font-size: 15px;">Tổng kết</span>
+                                                    <button id="tk-ptkt" class="btn" style="width: auto; margin: 10px;">BÁN</button>
+                                                    <div class="btn-group" role="group" style="margin-left: auto;margin-right: 5px;">
+                                                        <button type="button" class="btn btn-def txtTheoGio" per="3600">Theo giờ</button>
+                                                        <button type="button" class="btn btn-def txtTheoNgay active" per="86400">Theo ngày</button>
+                                                    </div>
+                                                </div>
+                                            </thead>
+                                            <tbody id="tk-ptkt-content">
+                                            </tbody>
+                                        </table>
+                                        <h4 class="txtDiemGioiHan" style="margin-top: 20px;">Điểm giới hạn</h4>
+                                        <table class="table color-table muted-table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="txtName">Tên</th>
+                                                    <th>S3</th>
+                                                    <th>S2</th>
+                                                    <th>S1</th>
+                                                    <th class="txtDiemGioiHan">Điểm giới hạn</th>
+                                                    <th>R1</th>
+                                                    <th>R2</th>
+                                                    <th>R3</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="dgh-ptkt-content">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-7" style="display: flex; padding: 0;">
+                                        <div class="col-6">
+                                            <h4 class="txtChiBaoKyThuat">Chỉ báo kỹ thuật</h4>
+                                            <table class="table color-table muted-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="txtName">Tên</th>
+                                                        <th class="txtGiaTri">Giá trị</th>
+                                                        <th class="txtAction">Hành động</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="cbkt-ptkt-content">                                                                      
+                                                </tbody>
+                                                <tfoot id="cbkt-ptkt-foot">
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <div class="col-6">
+                                            <h4 class="txtTrungBinhDong">Trung bình động</h4>
+                                            <table class="table color-table muted-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="txtName">Tên</th>
+                                                        <th class="txtDonGian">Đơn giản</th>
+                                                        <th class="txtLuyThua">Lũy thừa</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbd-ptkt-content">
+                                                    
+                                                </tbody>
+                                                <tfoot id="tbd-ptkt-foot">
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 style="font-size: 12px;padding-left: 10px;color: #7f7f7f;">
+                        (*) Nguồn dữ liệu: VPBS, HSX, HNX, CafeF, Vietstock, Bloomberg, Investing, Vietcombank...
+                        <br>
+                        Thông tin chỉ mang tính chất tham khảo - Khách hàng cân nhắc khi sử dụng
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-order">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active show" data-toggle="tab" href="#createOrder" role="tab" aria-selected="true">
+                    <span class="hidden-xs-down">Đặt lệnh</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#listOrder" role="tab" aria-selected="false">
+                    <span class="hidden-xs-down">Sổ lệnh</span>
+                </a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#category" role="tab" aria-selected="false">
+                    <span class="hidden-xs-down">Danh mục</span>
+                </a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#asset" role="tab" aria-selected="false">
+                    <span class="hidden-xs-down">Tài sản</span>
+                </a> 
+            </li>
+        </ul> 
+        <div class="tab-content">
+            <div class="col-12 panel-order-sel" style="margin-top: 10px;">
+                <label>Tài khoản: </label>
+                <select class="form-control" id="sel-account-order" style="width: 250px;">
+                </select>
+            </div>
+            <div class="tab-pane active show" id="createOrder" role="tabpanel" style="background: #262B3E;">
+                <input type="hidden" id="typeAccountGenerate" value= "0">
+                <div class="col-12" style="height: 32px; border-bottom: 1px solid #C6CBDE;">
+                    <span>Sức mua</span>
+                    <span id="panelOrderSucmua">0đ</span>
+                </div>
+                <div id="form-order">
+
+                </div>
+            </div>
+            <div class="tab-pane" id="listOrder" role="tabpanel" style="background: #262B3E;">
+                <!-- <div class="col-12" style="margin-top: 10px;">
+                    <label>Tài khoản: </label>
+                    <select class="form-control sel-account-order" style="width: 250px;">
+                    </select>
+                </div> -->
+                <div class="col-12" style="height: 10px; border-bottom: 1px solid #C6CBDE;">
+                    <!-- <span>Sức mua</span>
+                    <span id="panelOrderSucmua">0đ</span> -->
+                </div>
+                <div class="col-12" style="padding: 0; margin-top: 5px;">
+                    <table class="table color-table muted-table">
+                        <thead>
+                            <tr>
+                                <th>Lệnh</th>
+                                <th>Mã CK</th>
+                                <th>Giá</th>
+                                <th>SL</th>
+                                <th>TT</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center buy">Mua</td>
+                                <td class="text-center panel-pop-order" rel="popover" data-placement="top">VIC</td>
+                                <td class="text-right">102.1</td>
+                                <td class="text-right">10,000</td>
+                                <td class="text-center">Đã khớp</td>
+                                <td class="text-center"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center sell">Bán</td>
+                                <td class="text-center">VIC</td>
+                                <td class="text-right">109.2</td>
+                                <td class="text-right">10,000</td>
+                                <td class="text-center">Chờ khớp</td>
+                                <td class="text-center td-act">
+                                    <a href="javascript:void(0);" title="Sửa lệnh"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                    <a href="javascript:void(0);" title="Hủy lệnh"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="category" role="tabpanel" style="background: #262B3E;">
+                <!-- <div class="col-12" style="margin-top: 10px;">
+                    <label>Tài khoản: </label>
+                    <select class="form-control sel-account-order" style="width: 250px;">
+                    </select>
+                </div> -->
+                <div class="col-12" style="height: 10px; border-bottom: 1px solid #C6CBDE;">
+                    <!-- <span>Sức mua</span>
+                    <span id="panelOrderSucmua">0đ</span> -->
+                </div>
+                <div class="col-12" style="padding: 0; margin-top: 5px;">
+                    <table class="table color-table muted-table" id="panel-order-danhmuc">
+                        <thead>
+                            <tr>
+                                <th>Mã CK</th>
+                                <th>KL</th>
+                                <th>Giá TB</th>
+                                <th>Lãi/Lỗ</th>
+                                <th>%Lãi/Lỗ</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">VIC</td>
+                                <td class="text-right">10,000</td>
+                                <td class="text-right">150.2</td>
+                                <td class="text-right">100,000,000</td>
+                                <td class="text-right">90%</td>
+                                <td><input type="button" class="btn-sell" value="BÁN"></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="text-left" colspan="3">Tổng</td>
+                                <td class="text-right">100,000,000</td>
+                                <td class="text-right">90%</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane" id="asset" role="tabpanel" style="background: #262B3E;">
+                <!-- <div class="col-12" style="margin-top: 10px;">
+                    <label>Tài khoản: </label>
+                    <select class="form-control sel-account-order" style="width: 250px;">
+                        <option value="0063561">0063561</option>
+                        <option value="0063566">0063566</option>
+                        <option value="0063568">0063568</option>
+                    </select>
+                </div> -->
+                <div class="col-md-12" style="margin-top: 10px; border-top: 1px solid #C6CBDE;">
+                    <div>
+                        <span>Tiền mặt</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Tài sản ròng</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Tổng tài sản thực tế</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Tỷ lệ tài khoản</span>
+                        <span>0.5</span>
+                    </div>
+                    <div>
+                        <span>Tổng nợ gốc</span>
+                        <span>10,000,000</span>
+                    </div>
+                    <div>
+                        <span>Lãi tạm tính</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Phí lưu ký</span>
+                        <span>10,000</span>
+                    </div>
+                    <div>
+                        <span>Cổ tức bằng tiền</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Tiền có thể rút</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Tiền có thể mua</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Tiền có thể ứng</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Tiền chờ thanh toán</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                    <div>
+                        <span>Tiền bán chờ về</span>
+                        <span>10,000,000,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="panel-comment">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="background: #51566A;padding: 0.25em; margin-bottom: 0;"><span class="txtGopY">Góp ý</span><span class="hide-panel-comment"><i class="fa fa-minus" aria-hidden="true"></i></span></h4>
+                <form class="form-material" style="padding: 5px 10px 0 10px;">
+                    <div class="form-group">
+                        <label class="txtTieuDe">Tiêu đề</label>
+                        <input type="text" class="form-control tieude" placeholder="Tiêu đề"> </div>
+                    <div class="form-group">
+                        <label class="txtNoiDung">Nội dung</label>
+                        <textarea class="form-control noidung" rows="5"></textarea>
+                    </div>
+                    <div class="form-group" style="display: flex; justify-content: center;">
+                        <button type="button" class="btn waves-effect waves-light btn-success btn-save-gopy txtBtnSendGoY">Gửi góp ý</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade panel-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="card">
+                        <span class="text-danger validation"></span>
+                        <div class="card-body">
+                            <form class="form-horizontal form-material" id="loginform">
+                                <h3 class="box-title m-b-20 text-center">ĐĂNG NHẬP</h3>
+                                <div class="form-group ">
+                                    <div class="col-xs-12">
+                                        <input class="form-control" id="user-name-login" type="text" required="" placeholder="Username" autocomplete="off"> </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input class="form-control" id="pass-login" type="password" required="" placeholder="Password" autocomplete="off"> </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <div class="custom-control custom-checkbox">
+                                            <!-- <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">Remember me</label> -->
+                                            <a href="https://webtrade.vpbs.com.vn/Account/ForgotPassword" target="_blank" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> <span class="txtForgotPass">Quên mật khẩu?</span></a> 
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <div class="col-xs-12 p-b-10">
+                                        <button class="btn btn-block btn-lgtxtLogIn" id="btn-login-submit" type="button">Đăng nhập</button>
+                                    </div>
+                                    <div class="col-xs-12 p-b-10">
+                                        <a class="btn btn-block btn-lg txtLogIn" id="btn-open-account" href="http://openaccount.vpbs.com.vn/" target="_blank">Mở tài khoản</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                        <div class="social">
+                                            <span class="txtLoginFacebook">Đăng nhập bằng Facebook</span>
+                                            <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="" data-original-title="Login with Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form> 
+                        </div>
+                    </div>           
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <!-- End Wrapper -->
+    <!---->
+    <!-- <script>document.write("<script type='text/javascript' src='templates/coso/coso.js?v=" + Date.now() + "'><\/script>");</script> -->
+    <script src="dist/js/pages/router.js?v=1.1"></script>
+    <script src="dist/js/pages/processMsg.js?v=1.1"></script>
+    <script src="dist/js/pages/app.js?v=1.1"></script>
+    <script src="dist/js/pages/order.js?v=1.1"></script>
+    <!-- <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script> -->
+</body>
+
+<script>
+$( function() {
+    $('.tab-left .tab a').on('click', function(){
+        $('.tab-left .tab a').removeClass('active');
+        $('.tab-left .tab').removeClass('active');
+        $(this).addClass('active').parent().addClass('active');
+
+    });
+
+    initPage();
+});
+</script>
+</html>
