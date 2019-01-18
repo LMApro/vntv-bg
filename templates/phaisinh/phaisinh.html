@@ -1,0 +1,82 @@
+<link href="templates/phaisinh/phaisinh.css" rel="stylesheet">
+
+<div class="table-responsive">
+    <table class="table color-table muted-table banggia" id="tbl-ps" style="margin-top: 40px;">
+        <thead>
+            <tr>
+                <th rowspan="2" class="txtMaCK">Mã CK</th>
+                <th rowspan="2" class="cell-highlight txtThamChieu">T.C</th>
+                <th rowspan="2" class="cell-highlight txtTran">Trần</th>
+                <th rowspan="2" class="cell-highlight txtSan">Sàn</th>
+                <th colspan="6" class="txtBenMua">Bên mua</th>
+                <th colspan="4" class="cell-highlight txtKhopLenh">Khớp lệnh</th>
+                <th colspan="6" class="txtBenBan">Bên bán</th>
+                <th rowspan="2" class="txttotal-volumn">Tổng KL</th>
+                <th rowspan="2" class="txttotal-open">KL mở</th>
+                <th rowspan="2" class="txthight">Cao</th>
+                <th rowspan="2" class="txtlow">Thấp</th>
+                <th rowspan="2" class="txtave">TB</th>
+            </tr>
+            <tr>
+                <th><span class="txtGia">Giá</span> 3</th>
+                <th><span class="txtKhoiLuong">KL</span> 3</th>
+                <th><span class="txtGia">Giá</span> 2</th>
+                <th><span class="txtKhoiLuong">KL</span> 2</th>
+                <th><span class="txtGia">Giá</span> 1</th>
+                <th><span class="txtKhoiLuong">KL</span> 1</th>
+                <th class="cell-highlight txtGia">Giá</th>
+                <th class="cell-highlight txtKhoiLuong">KL</th>
+                <th class="cell-highlight">+/-</th>
+                <th class="cell-highlight">#<span class="txtCoSo">Cơ sở</span></th>
+                <th><span class="txtGia">Giá</span> 1</th>
+                <th><span class="txtKhoiLuong">KL</span> 1</th>
+                <th><span class="txtGia">Giá</span> 2</th>
+                <th><span class="txtKhoiLuong">KL</span> 2</th>
+                <th><span class="txtGia">Giá</span> 3</th>
+                <th><span class="txtKhoiLuong">KL</span> 3</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyPhaisinhContent">
+        </tbody>
+    </table>
+</div>
+<div class="bottom-panel">
+    <div class="left-panel">
+        <iframe id="chartFrame" src="https://hometrade.vpbs.com.vn/v2/index.html?gSymbol=VN30F1810" scrolling="no"></iframe>
+        <div class="preloaderChart">
+            <div class="loader">
+                <div class="loader__figure"></div>
+            </div>
+        </div>
+    </div>
+    <div class="right-panel">
+        <h3 id="cur-sym-10" class="txt-content text-center">VN30F1810</h3>
+        <table style="width: 50%; float: left; border-collapse: collapse;">
+            <thead>
+                <tr><th class="clLime text-center txtBenMua" colspan="2" style="color: #000;border: 1px solid #343434;">Bên mua</th></tr>
+                <tr>
+                    <th class="txt-content text-center txtKhoiLuong" style="border: 1px solid #282c3c; border-right: 0;">KL</th>
+                    <th class="txt-content text-center txtGia" style="border: 1px solid #282c3c; border-left: 0;">Giá</th>
+                </tr>
+            </thead>
+            <tbody id="ngiaIndexBContent">
+            </tbody>
+        </table>
+        <table style="width: 50%; float: left; border-collapse: collapse;">
+            <thead>
+                <tr><th class="clRed text-center txtBenBan" colspan="2" style="color: #000;border: 1px solid #282c3c;border-right: 0;">Bên bán</th></tr>
+                <tr>
+                    <th class="txt-content text-center txtGia" style="border: 1px solid #282c3c;border-right: 0;">Giá</th>
+                    <th class="txt-content text-center txtKhoiLuong" style="border: 1px solid #282c3c;border-left: 0;">KL</th>
+                </tr>
+            </thead>
+            <tbody id="ngiaIndexSContent">
+            </tbody>
+        </table>
+    </div>
+</div>
+    
+<script src="templates/phaisinh/phaisinh.js"></script>
+<script type="text/javascript">
+    objPage.init();
+</script>
