@@ -124,7 +124,7 @@ function getCookie(sKey) {
 function loadPage(id, title, pageName, objParam) {
 	if (location.protocol != 'https:')
 	{
-		location.href = 'https://banggia.vpbs.com.vn';
+		// location.href = 'https://banggia.vpbs.com.vn';
 	}
 	if (loadStart == 0) {
 		loadStart = 1;
