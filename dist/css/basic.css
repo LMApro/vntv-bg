@@ -1,0 +1,259 @@
+.txt-gia-tran, .c{
+    color: #ff25ff;
+  }
+  .txt-gia-san, .f{
+    color: #1eeeee;
+  }
+  .txt-gia-tc, .e{
+    color: #ffd900;
+  }
+  
+  .txt-lime, .i{
+    color: #0f0;
+  }
+  .txt-red, .d{
+    color: red;
+  }
+  .txt-magenta{
+    color: #ff25ff;
+  }
+  .txt-content{
+    color: #f0f0f0;
+  }
+  
+  .clLime{
+    background: #0f0 !important;
+  }
+  .clTC{
+    background: #ffd900 !important;
+  }
+  .clRed{
+    background: red !important;
+  }
+  
+  .color-table.muted-table thead th{
+    background: #1c1e27;
+    color: #f0f0f0;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #282c3c;
+  }
+  
+  a {
+    color: #f0f0f0;
+  }
+  
+  .content-header{
+    background: #000;
+   }
+  
+  .content-header .tab-left div:first-child input[type="text"]{
+    width: 100px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    color: #f0f0f0;
+    /* border-radius: 0 2px 2px 0; */
+    padding-left: 5px;
+  }
+  
+  .banggia tr td{
+      background: #000;
+  }
+  
+  /* .banggia tr:nth-child(even) td{
+    background: #101010;
+  } */
+  
+  /* .banggia tr:nth-child(odd) td.cell-highlight{
+    background: #2f3033;
+  } */
+  
+  .banggia tr td.cell-highlight{
+    background: #17191f;
+  }
+  
+  .banggia thead th.cell-highlight{
+    background: #17191f;
+  }
+  
+  .tab-content{
+    overflow-y: scroll;
+    color: #f0f0f0;
+    height: calc(100% - 38px);
+  }
+  
+  .info-box .table td{
+    color: #f0f0f0;
+    vertical-align: middle;
+  }
+  
+  .btn-secondary{
+    color: #f0f0f0;
+    background: #111217;
+    border: none;
+    border-radius: 0;
+  }
+  
+  .btn-secondary:hover{
+    color: #f0f0f0;
+    background: #111217;
+  }
+  
+  .border1, .border1:hover{
+    border-right: 1px solid #0B0B0B;
+    border-bottom: 1px solid #0B0B0B;
+  }
+  
+  .border2, .border2:hover{
+    border-left: 1px solid #0B0B0B;
+    border-bottom: 1px solid #0B0B0B;
+  }
+  
+  .border3, .border3:hover{
+    border-right: 1px solid #0B0B0B;
+    border-top: 1px solid #0B0B0B;
+  }
+  
+  .border4, .border4:hover{
+    border-left: 1px solid #0B0B0B;
+    border-top: 1px solid #0B0B0B;
+  }
+  
+  .comondity0, .comondity0:hover{
+    border-bottom: 1px solid #0B0B0B;
+  }
+  
+  .comondity1, .comondity1:hover{
+    border-top: 1px solid #0B0B0B;
+  }
+  
+  .banggia td, .banggia th{
+    border: 1px solid #1f1f1f;
+    vertical-align: middle;
+  }
+  
+  .tab-content>.tab-pane,
+  .tab-content>.tab-panel {
+  background: #242736;
+  }
+  
+  .modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+    background: #242736;
+    color: #fff;
+  }
+  
+  .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #242736;
+    color: #fff;
+  }
+  
+  .modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2px 15px;
+    background: #212029;
+    color: #fff;
+  }
+  
+  .modal .nav-tabs {
+    border-bottom: none;
+    background: #212029;
+  }
+  
+  .modal .selected table th {
+    background: #1d1f27 !important;
+  }
+  
+  .modal .selected table td {
+    background: #191a1d !important;
+  }
+  
+  .modal .color-table td {
+    background: #171717 !important;
+    border: 1px solid #2d2d2d;
+  }
+  #detailGeneral ul {
+    background: #171717 !important;
+  }
+  
+  .modal ul li a {
+    background: #171717 !important;
+  }
+  
+  #intraday_chart{
+  background: #171717;
+  }
+  
+  .btn-def {
+  background: #585858 !important;
+  }
+  
+  .tab-caidat,.tab-thugon, .tab-theme{
+    margin-left: 5px !important;
+    color: #f0f0f0;
+    background: transparent !important;
+  }
+  
+  .tab-caidat,.tab-thugon{
+    padding: 5px 10px !important;
+  }
+  
+  .tab-theme{
+    padding: 8px 5px 6px 10px !important;
+    margin: 0 5px;
+  }
+  .tab-datlenh {
+    color: #000 !important;
+    background: #25E7B3;
+  }
+  
+  .content-header {
+    border-bottom: 2px solid rgb(75, 252, 205);
+  }
+  
+  
+  .btn-def{
+    background: #242736;
+    color: #AFB4C7;
+    padding: 2px 8px;
+  }
+  
+  .btn-def.active{
+    background: #9EC663 !important;
+    color: #242834;
+  }
+  
+  #detailTechnical .btn-def{
+    background: #515151;
+  }
+  
+  #detailTechnical .btn-def.active{
+    background: #9EC663 !important;
+  }
+  
+  .modal ul li a{
+    padding: 2px 10px !important;
+    background: #242736;
+  }
+  
+  .modal ul li a.active{
+    background: #25E7B3 !important;
+    color: #232935 !important;
+  }
+  
+  .modal .nav-tabs .nav-item{
+    margin-bottom: 0 !important;
+  }
+  
+  .timeStamp {
+    color: rgb(0, 255, 0);
+  }

@@ -18854,7 +18854,7 @@ ul.list-inline li {
 }
 
 @font-face {
-  font-family:FontAwesome;src:url(fonts/fontawesome-webfont3e6e.ttf?v=4.7.0) format("truetype");
+  font-family:FontAwesome;src:url(fonts/fontawesome-webfont3e6e.ttf) format("truetype");
 }
 
 @font-face {

@@ -1,0 +1,8 @@
+.table-responsive{
+    height: calc(100% - 40px);
+    overflow: visible;
+}
+
+.color-table.muted-table td {
+    border: 1px solid #282c3c;
+}

@@ -1,0 +1,254 @@
+.txt-gia-tran, .c{
+    color: #A976D3;
+  }
+  .txt-gia-san, .f{
+    color: #00b7d7;
+  }
+  .txt-gia-tc, .e{
+    color: #d1af54;
+  }
+  
+  .txt-lime, .i{
+    color: #50C979;
+  }
+  .txt-red, .d{
+    color: #DA5664;
+  }
+  .txt-magenta{
+    color: #A976D3;
+  }
+  .txt-content{
+    color: #C6CBDE;
+  }
+  
+  .clLime{
+    background: #50C979 !important;
+  }
+  .clTC{
+    background: #d1af54 !important;
+  }
+  .clRed{
+    background: #DA5664 !important;
+  }
+
+  .color-table.muted-table thead th{
+    background: #111217;
+    color: #C6CBDE;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #282c3c;
+  }
+
+  a {
+    color: #C6CBDE;
+  }
+
+  .banggia thead th.cell-highlight,
+  .banggia tr td.cell-highlight{
+    background: #1D212D;
+ }
+
+ .content-header{
+  background: #262B3E;
+ }
+
+  .content-header .tab-left div:first-child input[type="text"]{
+    width: 100px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    color: #C6CBDE;
+    /* border-radius: 0 2px 2px 0; */
+    padding-left: 5px;
+  }
+
+  .tab-content{
+    overflow-y: scroll;
+    color: #C6CBDE;
+    height: calc(100% - 38px);
+  }
+
+  .info-box .table td{
+    color: #C6CBDE;
+    vertical-align: middle;
+  }
+
+  .btn-secondary{
+    color: #C6CBDE;
+    background: #111217;
+    border: none;
+    border-radius: 0;
+  }
+  
+  .btn-secondary:hover{
+    color: #C6CBDE;
+    background: #111217;
+  }
+
+  .border1, .border1:hover{
+    border-right: 1px solid #0B0B0B;
+    border-bottom: 1px solid #0B0B0B;
+  }
+  
+  .border2, .border2:hover{
+    border-left: 1px solid #0B0B0B;
+    border-bottom: 1px solid #0B0B0B;
+  }
+  
+  .border3, .border3:hover{
+    border-right: 1px solid #0B0B0B;
+    border-top: 1px solid #0B0B0B;
+  }
+  
+  .border4, .border4:hover{
+    border-left: 1px solid #0B0B0B;
+    border-top: 1px solid #0B0B0B;
+  }
+  
+  .comondity0, .comondity0:hover{
+    border-bottom: 1px solid #0B0B0B;
+  }
+  
+  .comondity1, .comondity1:hover{
+    border-top: 1px solid #0B0B0B;
+  }
+
+  .banggia td, .banggia th{
+    border: 1px solid #282c3c;
+    vertical-align: middle;
+  }
+
+.tab-content>.tab-pane,
+.tab-content>.tab-panel {
+  background: #3F434F;
+}
+  
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem;
+  background: #3F434F;
+  color: #C6CBDE;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #3F434F;
+  color: #C6CBDE;
+}
+
+  .modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2px 15px;
+    background: #464B5E;
+    color: #C6CBDE;
+  }
+
+  .nav-tabs {
+    border-bottom: none;
+    background: #323848;
+  }
+
+  .selected table th {
+    background: #242736;
+  }
+  .selected table td {
+    background: #3F434F;
+}
+
+#intraday_chart{
+  background: #242736
+}
+
+.tab-datlenh {
+  color: #000 !important;
+  background: #25E7B3;
+}
+
+.content-header div .tab {
+  background: #3A3D4E;
+}
+
+.content-header div .tab.active {
+  background: rgb(75, 252, 205);
+}
+
+.content-header div .active{
+  color: #000;
+}
+
+.tab-caidat,.tab-thugon, .tab-theme{
+  background: transparent !important;
+}
+
+.content-header {
+  border-bottom: 2px solid rgb(75, 252, 205);
+}
+
+.content-header div{
+  color: #C6CBDE;
+}
+
+
+.modal ul li a{
+  padding: 2px 10px !important;
+  background: #242736;
+}
+
+.modal ul li a.active{
+  background: #25E7B3 !important;
+  color: #232935 !important;
+}
+
+.modal .nav-tabs .nav-item{
+  margin-bottom: 0 !important;
+}
+
+.modal-title{
+  color: #25E7B2;
+}
+.modal .color-table th{
+  background: #242736 !important;
+  border: 1px solid #4D5466;
+  color: #C7CCE0 !important;
+}
+
+.modal .color-table td{
+  background: #3F434F;
+  border: 1px solid #4D5466;
+  vertical-align: middle;
+}
+.btn-def{
+  background: #242736;
+  color: #AFB4C7;
+  padding: 2px 8px;
+}
+
+.btn-def.active{
+  background: #9EC663 !important;
+  color: #242834;
+}
+
+#detailTechnical .btn-def{
+  background: #515151;
+}
+
+#detailTechnical .btn-def.active{
+  background: #9EC663 !important;
+}
+
+.div-tongket{
+  display: flex;
+  align-items: center;
+  border-left: 3px solid #6d6d;
+  background: #242736;
+}
+
+.timeStamp {
+  color: #25E7B2;
+}
